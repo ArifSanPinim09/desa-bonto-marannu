@@ -3,13 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-green: #166534;
+  --primary-green-dark: #14532d;
+  --primary-green-light: #16a34a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +24,172 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Modern Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Override Tailwind Prose default gray colors to black */
+.prose {
+  color: #111827 !important; /* gray-900 */
+}
+
+.prose p {
+  color: #111827 !important; /* gray-900 */
+}
+
+.prose li {
+  color: #111827 !important; /* gray-900 */
+}
+
+.prose td,
+.prose th {
+  color: #111827 !important; /* gray-900 */
+}
+
+.prose blockquote {
+  color: #1f2937 !important; /* gray-800 */
+}
+
+.prose code {
+  color: #111827 !important; /* gray-900 */
+}
+
+.prose pre {
+  color: #111827 !important; /* gray-900 */
+}
+
+/* Force all form inputs to have black text - NORMAL weight */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+textarea,
+select {
+  color: #111827 !important; /* gray-900 */
+  font-weight: 400 !important; /* Normal weight */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280 !important; /* gray-500 */
+  font-weight: 400;
+}
+
+/* Labels should be semibold and black */
+label {
+  color: #111827 !important; /* gray-900 */
+  font-weight: 600 !important;
+}
+
+/* Override any inline label styles */
+label.text-gray-700,
+label[class*="text-gray-700"] {
+  color: #111827 !important; /* gray-900 */
+}
+
+/* Select dropdowns should have black text */
+select {
+  color: #111827 !important; /* gray-900 */
+  font-weight: 400 !important;
+}
+
+select option {
+  color: #111827 !important; /* gray-900 */
+}
+
+/* Quill Editor text should be black and normal weight */
+.ql-editor,
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+  color: #111827 !important; /* gray-900 */
+  font-weight: 400 !important; /* Normal weight */
+}
+
+.ql-editor strong {
+  font-weight: 700 !important; /* Bold only when explicitly set */
 }
