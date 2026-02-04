@@ -117,7 +117,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
       name: 'Desa Bonto Marannu',
       logo: {
         '@type': 'ImageObject',
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/logo-desa.png`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://desa-bonto-marannu.vercel.app'}/logo-desa.png`,
       },
     },
   }

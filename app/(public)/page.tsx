@@ -185,7 +185,7 @@ export default async function HomePage() {
     name: 'Desa Bonto Marannu',
     alternateName: 'Bonto Marannu',
     description: 'Desa Mandiri Terbaik Peringkat I se-Sulawesi Selatan 2025. Pusat agrowisata dan kearifan lokal di lereng Pegunungan Lompobattang.',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://desa-bonto-marannu.vercel.app',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bonto Marannu',

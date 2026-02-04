@@ -13,7 +13,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://desa-bonto-marannu.vercel.app'),
   title: {
     default: "Desa Bonto Marannu - Desa Mandiri Terbaik Peringkat I se-Sulawesi Selatan 2025",
     template: "%s | Desa Bonto Marannu"
