@@ -193,3 +193,228 @@ select option {
 .ql-editor strong {
   font-weight: 700 !important; /* Bold only when explicitly set */
 }
+
+/* Quill Content Responsive Styles */
+.quill-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.quill-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+}
+
+.quill-content p:last-child {
+  margin-bottom: 0;
+}
+
+.quill-content h1,
+.quill-content h2,
+.quill-content h3,
+.quill-content h4,
+.quill-content h5,
+.quill-content h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.quill-content h1 {
+  font-size: 2.25rem;
+}
+
+.quill-content h2 {
+  font-size: 1.875rem;
+}
+
+.quill-content h3 {
+  font-size: 1.5rem;
+}
+
+.quill-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 0.5rem;
+}
+
+.quill-content iframe,
+.quill-content video {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+
+.quill-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.quill-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+}
+
+.quill-content table td,
+.quill-content table th {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+}
+
+.quill-content table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+/* Quill specific alignment classes - override justify for explicit alignments */
+.quill-content .ql-align-center {
+  text-align: center !important;
+}
+
+.quill-content .ql-align-right {
+  text-align: right !important;
+}
+
+.quill-content .ql-align-justify {
+  text-align: justify !important;
+}
+
+.quill-content .ql-align-left {
+  text-align: left !important;
+}
+
+/* Quill indent classes */
+.quill-content .ql-indent-1 {
+  padding-left: 3em;
+}
+
+.quill-content .ql-indent-2 {
+  padding-left: 6em;
+}
+
+.quill-content .ql-indent-3 {
+  padding-left: 9em;
+}
+
+/* Quill blockquote styling */
+.quill-content blockquote {
+  border-left: 4px solid #166534;
+  padding-left: 1em;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #4b5563;
+  text-align: left;
+}
+
+/* Quill list styling */
+.quill-content ul,
+.quill-content ol {
+  padding-left: 1.5em;
+  margin: 1.25rem 0;
+  text-align: left;
+}
+
+.quill-content li {
+  margin-bottom: 0.5em;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+.quill-content ul ul,
+.quill-content ol ol,
+.quill-content ul ol,
+.quill-content ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Strong and emphasis */
+.quill-content strong {
+  font-weight: 700;
+}
+
+.quill-content em {
+  font-style: italic;
+}
+
+/* Links */
+.quill-content a {
+  color: #166534;
+  text-decoration: underline;
+}
+
+.quill-content a:hover {
+  color: #14532d;
+}
+
+/* Ensure responsive on mobile */
+@media (max-width: 640px) {
+  .quill-content {
+    font-size: 1rem;
+  }
+  
+  .quill-content h1 {
+    font-size: 1.875rem;
+  }
+  
+  .quill-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .quill-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .quill-content .ql-indent-1 {
+    padding-left: 1.5em;
+  }
+  
+  .quill-content .ql-indent-2 {
+    padding-left: 3em;
+  }
+  
+  .quill-content .ql-indent-3 {
+    padding-left: 4.5em;
+  }
+}
+
+/* Better text wrapping for Indonesian language */
+.hyphens-auto {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* Prevent awkward word breaks */
+.break-words {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Better line breaking for long words */
+p, div, span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}

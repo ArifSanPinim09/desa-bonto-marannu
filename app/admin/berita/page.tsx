@@ -13,6 +13,15 @@ import { formatDate } from '@/src/lib/utils/format'
 import type { Database } from '@/src/types/database'
 import type { News, NewsStatus } from '@/src/types/news'
 
+// Strip HTML tags and decode entities from Quill editor content
+function stripHtmlAndDecode(html: string): string {
+  // Create a temporary div to parse HTML
+  const div = document.createElement('div')
+  div.innerHTML = html
+  const text = div.textContent || div.innerText || ''
+  return text.trim()
+}
+
 export default function BeritaPage() {
   const router = useRouter()
   const [news, setNews] = useState<News[]>([])
@@ -334,7 +343,7 @@ function NewsCard({ news, onEdit, onDelete, onStatusToggle }: NewsCardProps) {
                 </h3>
 
                 <p className="text-gray-600 text-sm line-clamp-2 mb-3 break-words overflow-hidden">
-                  {news.excerpt}
+                  {stripHtmlAndDecode(news.excerpt)}
                 </p>
 
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">

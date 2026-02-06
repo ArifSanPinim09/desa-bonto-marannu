@@ -8,6 +8,21 @@ import Button from '@/src/components/shared/Button'
 import { formatDate } from '@/src/lib/utils/format'
 import type { News } from '@/src/types/news'
 
+// Strip HTML tags and decode entities from Quill editor content
+function stripHtmlAndDecode(html: string): string {
+  // Server-side: strip tags and decode entities
+  return html
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+    .trim()
+}
+
 export const metadata: Metadata = {
   title: "Berita Desa Bonto Marannu",
   description: "Informasi terkini seputar kegiatan dan pengumuman Desa Bonto Marannu, Kec. Uluere, Kab. Bantaeng. Baca berita dan artikel terbaru dari pemerintah desa tentang agrowisata, kearifan lokal, dan pembangunan desa.",
@@ -146,8 +161,8 @@ function NewsCard({ article }: NewsCardProps) {
           </h3>
 
           {/* Excerpt */}
-          <p className="text-gray-600 text-sm line-clamp-3">
-            {article.excerpt}
+          <p className="text-gray-600 text-sm line-clamp-3 break-words hyphens-auto" lang="id">
+            {stripHtmlAndDecode(article.excerpt)}
           </p>
 
           {/* Read More Link */}

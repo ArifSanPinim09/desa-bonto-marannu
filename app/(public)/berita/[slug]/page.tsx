@@ -9,6 +9,11 @@ import { Card, CardContent } from '@/src/components/shared/Card'
 import { formatDate, formatRelativeDate } from '@/src/lib/utils/format'
 import type { News } from '@/src/types/news'
 
+// Clean Quill content by replacing &nbsp; with regular spaces
+function cleanQuillContent(html: string): string {
+  return html.replace(/&nbsp;/g, ' ')
+}
+
 interface NewsDetailPageProps {
   params: Promise<{ slug: string }>
 }
@@ -188,8 +193,8 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
                 {/* Article Content */}
                 <div
-                  className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-green-600 hover:prose-a:text-green-700 prose-strong:text-gray-900 prose-img:rounded-lg"
-                  dangerouslySetInnerHTML={{ __html: article.content }}
+                  className="quill-content prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-green-600 hover:prose-a:text-green-700 prose-strong:text-gray-900 prose-img:rounded-lg"
+                  dangerouslySetInnerHTML={{ __html: cleanQuillContent(article.content) }}
                 />
               </div>
             </article>

@@ -9,6 +9,21 @@ import Button from '@/src/components/shared/Button'
 import { formatDate } from '@/src/lib/utils/format'
 import type { News } from '@/src/types/news'
 
+// Strip HTML tags and decode entities from Quill editor content
+function stripHtmlAndDecode(html: string): string {
+  // Always use the same method for both server and client to avoid hydration mismatch
+  return html
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+    .trim()
+}
+
 interface NewsSectionProps {
   news: News[]
 }
@@ -117,8 +132,8 @@ function NewsCard({ article }: NewsCardProps) {
           </h3>
 
           {/* Excerpt */}
-          <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-            {article.excerpt}
+          <p className="text-sm text-gray-600 mb-4 line-clamp-3 overflow-hidden text-ellipsis">
+            {stripHtmlAndDecode(article.excerpt)}
           </p>
 
           {/* Read More Link */}
